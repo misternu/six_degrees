@@ -5,10 +5,10 @@ require_relative 'six_degrees/user'
 
 # module for finding connected users to the 6th degree
 module SixDegrees
-  def self.run(filename)
+  def self.users(filename)
     File.readlines(filename).each do |string|
       TweetParser.parse(string)
     end
-    p SixDegrees::User.all.first.connections
+    User.all
   end
 end
