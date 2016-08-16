@@ -1,8 +1,7 @@
 require_relative 'lib/six_degrees'
+require 'rspec/core/rake_task'
 
-task default: :run
+task default: :spec
 
-desc 'Get the first user\'s connections'
-task :run do
-  SixDegrees.run(ARGV.last)
-end
+desc 'Run the spec suite'
+RSpec::Core::RakeTask.new(:spec)
